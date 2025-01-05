@@ -1,6 +1,6 @@
 # mingyoseo.com
-This repository contains the template backbone for [mingyoseo.com](https://mingyoseo.com).
-[Here](https://kiwi-sherbet.github.io/mingyoseo.com) is a demo page.
+This repository contains the template backbone from Mingyo Seo's [personal webpage](https://mingyoseo.com), in use since 2019. 
+You can view the demo page of this template [here](https://kiwi-sherbet.github.io/mingyoseo.com).
 
 ## Fonts Used
 This template utilizes the following fonts from Google Fonts:
