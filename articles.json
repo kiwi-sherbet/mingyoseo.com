@@ -1,0 +1,24 @@
+[
+    {
+        "name":"Bukhansan",
+        "path":"./articles/bukhansan.html",
+        "date":20250101
+    },
+    {
+        "name":"Guadalupe",
+        "path":"./articles/guadalupe.html",
+        "date":20250101
+    }
+    ,
+    {
+        "name":"Jirisan",
+        "path":"./articles/jirisan.html",
+        "date":20250101
+    }
+    ,
+    {
+        "name":"old",
+        "path":"./articles/old.html",
+        "date":20250101
+    }
+]

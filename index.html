@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta name="description" content="Mingyo's profile page template"/>
+	<meta name="author" content="mingyo@mingyoseo.com"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Profile Page</title>
+
+	<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="./css/base.css">
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/home.css">
+	<link rel="stylesheet" type="text/css" href="./css/article.css">
+	<link rel="stylesheet" type="text/css" href="./css/aside.css">
+
+	<script src="https://kit.fontawesome.com/ef67f68cfb.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>   
+	<script>
+
+		$(document).ready(()=>{
+
+			$("#header").on("click", ".menu-item", (e)=>{
+				$("#header").find(".active").removeClass("active");
+				$(e.target).addClass("active");
+
+				const href = $(e.target).data("href");
+				
+				if(/.html$/.test(href)) {
+					$.get(href).then((html)=>$("#content").html(html));	
+				}else{
+					runContent(href);
+				}
+			});
+
+			$("#content").on("click", ".shift-content", (e) => {
+				$("#content").find(".active").removeClass("active");
+				$(e.target).addClass("active");
+
+				const href = $(e.target).data("href");
+				
+				if(/.html$/.test(href)) {
+					$.get(href).then((html)=>$("#content").html(html));	
+				}else{
+					runContent(href);
+				}
+			});
+
+			$("#content").on("click", ".show-toggle", (e) => {
+				const div = $(e.target).parent().find(".show-div");
+				let btnTxt;				
+				if (div.hasClass('hide')) {
+					btnTxt = 'Hide'
+				} else {
+					btnTxt = 'Read'					
+				}
+				div.toggleClass('hide');				
+				$(e.target).text(btnTxt);
+			});
+
+			$("#content").on("click", ".menu-link", (e)=>{
+
+				const id = $(e.target).data("id");
+
+				document.getElementById(id).click();
+				
+			});
+
+			document.getElementById("button-about").click();
+
+			initContent();
+
+		});
+
+		function gtag(){dataLayer.push(arguments);}
+
+		function initContent() {
+			if (typeof jQuery.when.all === 'undefined') {
+				jQuery.when.all = function (deferreds) {
+					return $.Deferred(function (def) {
+						$.when.apply(jQuery, deferreds).then(
+							function () {
+								def.resolveWith(this, [Array.prototype.slice.call(arguments)]);
+							},
+							function () {
+								def.rejectWith(this, [Array.prototype.slice.call(arguments)]);
+							});
+					});
+				}
+			}
+		}
+
+		function runContent(url) {
+			$.ajax(url).then((list)=>{
+				const promiseArr = [];
+				let allHtml = '';
+				list.map((data)=>{
+					promiseArr.push($.ajax(data.path));
+				});
+				$.when.all(promiseArr).then(function(htmls) {
+					htmls.map((html)=>{
+						allHtml += html[0];
+					});
+					$("#content").html(allHtml);
+				})
+			});
+		}
+
+	</script>
+
+</head>
+
+<body>
+	<header id="header">
+
+		<input class="nav-toggle click" id="nav-toggle" type="checkbox">
+		<label class="nav-icon" for="nav-toggle"> <span class="nav-icon-bar"> </span> </label>
+
+		<h1> Mingyo's Template </h1>
+
+		<nav>
+			<ul class="nav-menu">
+				<li class="menu-item click" data-href="./about.html" id="button-about"> About </li>
+				<li class="menu-item click" data-href="./articles.json" id="button-articles"> Articles </li>
+				<li onclick="location.href='https://mingyoseo.com';"  style="cursor:pointer;"> mingyoseo.com </li>
+			</ul>
+		</nav>
+
+	</header>
+
+	<section id="content">
+	</section>
+
+	<footer>
+		Copyright 2025 <a target="_blank" style="color: rgb(100, 100, 100, 0.4);" href="https://mingyoseo.com">Mingyo Seo</a>
+	</footer>
+
+</body>
+
+</html>

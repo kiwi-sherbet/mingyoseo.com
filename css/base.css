@@ -1,0 +1,58 @@
+@font-face 
+{
+	font-family: "User title";
+	/*src: url(../fonts/Peignot/PeignotD-Light.otf) format("truetype");*/
+	src: url(../fonts/Jost/Jost-400-Book.otf) format("truetype");
+}
+
+@font-face 
+{
+	font-family: "User content";
+	src: url(../fonts/Manrope/Manrope-Regular.otf) format("truetype");
+}
+
+@font-face 
+{
+	font-family: "User footer";
+	src: url(../fonts/Jost/Jost-500-Medium.otf) format("truetype");
+}
+
+
+body
+{
+	margin: 0px auto;
+	padding: 0px;
+	font-family: "User content";
+	max-width:800px;
+}
+
+
+a 
+{
+	text-decoration: none; 
+	color: rgba(72, 60, 148, 1);
+}
+
+
+a:hover {text-decoration: underline;}
+
+
+footer
+{
+	/* position: absolute; */
+	/*margin: 10 25px;*/
+	padding: 10px 25px;
+	text-align: right;
+	font-family: "User footer";
+	color: rgb(100, 100, 100, 0.4);	
+}
+
+.hide
+{
+	display: none;
+}
+
+.click
+{
+	cursor: pointer;
+}

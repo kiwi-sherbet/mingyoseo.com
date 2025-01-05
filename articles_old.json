@@ -1,0 +1,13 @@
+[
+    {
+    "name":"Yosemite",
+    "path":"./articles/yosemite.html",
+    "date":20250101
+    }
+    ,
+    {
+    "name":"new",
+    "path":"./articles/new.html",
+    "date":20221004
+    }
+]

@@ -1,0 +1,42 @@
+aside 
+{
+	float: right;
+
+	top: 60px;
+	bottom: 0;
+
+	width: 200px;
+	padding-top: 25px;
+	background-color: #333;
+}
+
+
+
+/* aside navigation */
+aside > ul 
+{
+	width: 200px;
+}
+
+aside > ul > li > a 
+{
+	display: block;
+	color: #fff;
+	padding: 10px 0 10px 20px;
+}
+
+aside > ul > li > a.active 
+{
+	background-color: #4CAF50;
+}
+
+aside > ul > li > a:hover:not(.active) 
+{
+	background-color: #555;
+}
+
+aside > h1 
+{
+	padding: 20px 0 20px 20px;
+	color: #fff;
+}
