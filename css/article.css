@@ -74,3 +74,21 @@ article iframe
   margin-left: auto;
   margin-right: auto;
 }
+
+@media all and (orientation: portrait) and (max-width: 600px) 
+{
+	article img
+	{
+		float: none;
+		clear: both;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+	article iframe
+	{
+		float: none;
+		clear: both;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
